@@ -1,5 +1,7 @@
 # random_generator
-
+```
+random_generator is a project for generating a result in different subjects.
+```
 ## Project setup
 ```
 npm install
