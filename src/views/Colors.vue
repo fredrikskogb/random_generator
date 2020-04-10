@@ -15,6 +15,16 @@
                type="checkbox"
                @click="displayInvertedColor = !displayInvertedColor">
       </div>
+      <div>
+        <label for="opacity">Opacity: </label>
+        <input id="opacity"
+               type="number"
+               max="1"
+               min="0"
+               step="0.1"
+               v-model="opacity"
+               v-on:change="setColors">
+      </div>
       <button class="generator-button color-option"
               @click="randomColor">Generate</button>
     </div>
@@ -33,6 +43,7 @@
         red: 0,
         green: 0,
         blue: 0,
+        opacity: 0,
         generatedColor: '',
         invertedColor: '',
         displayInvertedColor: false
@@ -49,15 +60,21 @@
         this.red = this.randomNumber();
         this.green = this.randomNumber();
         this.blue = this.randomNumber();
-        this.generatedColor = `rgb(${this.red},${this.green},${this.blue})`;
-        this.invertedColor = this.invertColor();
+        this.setColors();
       },
       randomNumber(): number {
         return (Math.random() * 255 | 0) + 1;
       },
-      invertColor(): string {
-        return `rgb(${255 - this.red},${255 - this.green},${255 - this.blue})`;
-      }
+      setColors(): void {
+        if(this.opacity == 0) {
+          this.generatedColor = `rgb(${this.red},${this.green},${this.blue})`;
+          this.invertedColor = `rgb(${255 - this.red},${255 - this.green},${255 - this.blue})`;
+        } else {
+          this.generatedColor = `rgb(${this.red},${this.green},${this.blue},${this.opacity})`;
+          this.invertedColor = `rgb(${255 - this.red},${255 - this.green},${255 - this.blue},${this.opacity})`;
+        }
+      },
+
     }
   })
 
@@ -78,6 +95,10 @@
     }
     .generator-button {
       cursor: pointer;
+      background-color: white;
+      border-radius: 5px;
+      padding: 0.5em;
+      border: 1px solid black;
     }
   }
 
