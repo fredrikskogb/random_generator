@@ -74,7 +74,12 @@ html {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Indie Flower', cursive;
+}
+h1 {
   font-size: 200%;
+}
+h2{
+  font-size: 150%;
 }
 #nav {
   font-size: 1.3em;

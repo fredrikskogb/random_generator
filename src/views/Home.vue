@@ -22,6 +22,7 @@ export default {
 </script>
 <style lang="less" scoped>
   #sub-nav {
+    padding: 0;
     .sub-nav-link {
     }
   }
