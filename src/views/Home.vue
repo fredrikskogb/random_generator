@@ -2,9 +2,11 @@
   <div class="home">
     <div id="sub-nav"
          class="nav">
-      <router-link to="/color">Colors</router-link> |
+      <router-link to="/colors"
+                   class="sub-nav-link">Colors & Color Schemes</router-link> |
+      <router-link to="/tones"
+                   class="sub-nav-link">Musical Tones and Melodies</router-link>
     </div>
-    <img alt="Vue logo" src="../assets/logo.png">
   </div>
 </template>
 
@@ -18,3 +20,9 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+  #sub-nav {
+    .sub-nav-link {
+    }
+  }
+</style>

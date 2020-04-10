@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '@/views/Home.vue'
-import Color from "@/views/Color.vue";
+import Colors from "@/views/Colors.vue";
 
 Vue.use(VueRouter);
 
@@ -12,9 +12,9 @@ Vue.use(VueRouter);
     component: Home
   },
   {
-    path: '/color',
-    name: 'Color',
-    component: Color
+    path: '/colors',
+    name: 'Colors',
+    component: Colors
   },
   {
     path: '/about',
