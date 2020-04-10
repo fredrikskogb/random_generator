@@ -1,6 +1,7 @@
 <template>
   <div class="colors-block-container">
-    <div class="color-container" ref="colorsBlock">
+    <div class="color-container"
+         ref="colorsBlock">
       <span class="color-text">{{this.color}}</span>
     </div>
   </div>
@@ -11,7 +12,7 @@
 
   export default Vue.extend( {
     name: 'ColorsBlock',
-    props: ['color'],
+    props: ['color', 'displayInvertedColor'],
     mounted(): void {
       this.setPropsColor();
     },

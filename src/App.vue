@@ -79,11 +79,11 @@ h1,h2,h3,h4,h5,h6 {
 #nav {
   font-size: 1.3em;
   .title {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.15em;
   }
 }
 #nav, #sub-nav {
-  padding: 1em;
+  padding: 0.5em;
 
   a {
     font-weight: bold;
