@@ -106,6 +106,8 @@
     display: flex;
     justify-content: center;
     margin: 0.5em 0.5em 0 0.5em;
+    flex-shrink: 0;
+    flex-flow: row wrap;
     .color-block {
       margin: 0.5em 0.5em 0 0.5em;
     }
