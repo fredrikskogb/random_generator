@@ -10,13 +10,12 @@
     </div>
     <div class="color-options">
       <div class="color-option">
-        <label for="complementary-color">Complementary color</label>
         <input id="complementary-color"
                type="checkbox"
                @click="displayInvertedColor = !displayInvertedColor">
+        <label for="complementary-color">Complementary color</label>
       </div>
       <div>
-        <label for="opacity">Opacity: </label>
         <input id="opacity"
                type="number"
                max="1"
@@ -24,9 +23,31 @@
                step="0.1"
                v-model="opacity"
                v-on:change="setColors">
+        <label for="opacity"> Opacity</label>
       </div>
       <button class="generator-button color-option"
               @click="randomColor">Generate</button>
+      <div class="lower-section">
+        <p class="color-option">or enter color to invert</p>
+        <div class="individual-color">
+          <div class="color-option">
+            <input type="number" max="255" min="0" v-model="red">
+            <label> Red</label>
+          </div>
+
+          <div class="color-option">
+            <input type="number" max="255" min="0" v-model="green">
+            <label> Green</label>
+          </div>
+
+          <div class="color-option">
+            <input type="number" max="255" min="0" v-model="blue">
+            <label> Blue</label>
+          </div>
+        </div>
+        <button class="generator-button color-option"
+                @click="setColors">Set color</button>
+      </div>
     </div>
   </div>
 </template>
@@ -90,8 +111,14 @@
     }
   }
   .color-options {
+    width: 300px;
+    text-align: left;
+    margin: 1em auto;
+    #complementary-color {
+      margin: 0 5px 0 0;
+    }
     .color-option {
-      margin: 5px;
+      margin: 5px 0 5px 0;
     }
     .generator-button {
       cursor: pointer;
@@ -100,6 +127,14 @@
       padding: 0.5em;
       border: 1px solid black;
     }
+    .lower-section {
+      margin-top: 1em;
+      .individual-color {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
   }
 
 </style>

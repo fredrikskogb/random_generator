@@ -2,6 +2,7 @@
   <div class="colors-block-container">
     <div class="color-container"
          ref="colorsBlock">
+      <p v-if="!inverted">Main color</p>
       <span class="color-text">{{this.color}}</span>
     </div>
   </div>
@@ -12,7 +13,7 @@
 
   export default Vue.extend( {
     name: 'ColorsBlock',
-    props: ['color', 'displayInvertedColor'],
+    props: ['color', 'inverted'],
     mounted(): void {
       this.setPropsColor();
     },
@@ -39,6 +40,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     .color-text {
       font-family: Arial;
       font-weight: bold;
