@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Colors from "@/views/Colors.vue";
+import Strings from "@/views/Strings.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ Vue.use(VueRouter);
     path: '/colors',
     name: 'Colors',
     component: Colors
+  },
+  {
+    path: '/imaginary-words-and-names',
+    name: 'Strings',
+    component: Strings
   },
   {
     path: '/about',
