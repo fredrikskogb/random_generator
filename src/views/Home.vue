@@ -5,7 +5,9 @@
       <router-link to="/colors"
                    class="sub-nav-link">Colors & Color Schemes</router-link> |
       <router-link to="/tones"
-                   class="sub-nav-link">Musical Tones and Melodies</router-link>
+                   class="sub-nav-link">Musical Tones and Melodies</router-link> |
+      <router-link to="/imaginary-words-and-names"
+                   class="sub-nav-link">Imaginary words and names</router-link>
     </div>
   </div>
 </template>

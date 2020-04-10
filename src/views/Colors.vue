@@ -15,7 +15,7 @@
                @click="displayInvertedColor = !displayInvertedColor">
         <label for="complementary-color">Complementary color</label>
       </div>
-      <div>
+      <div class="color-option">
         <input id="opacity"
                type="number"
                max="1"
