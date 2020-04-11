@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="child-color-container">
-      <ColorBlock class="color-block"
-                   :color="generatedColor"></ColorBlock>
-      <ColorBlock class="color-block"
-                   v-if="displayInvertedColor"
-                   :inverted="true"
-                   :color="invertedColor"></ColorBlock>
+      <GenerateColors class="color-block"
+                      :color="generatedColor"></GenerateColors>
+      <GenerateColors class="color-block"
+                      v-if="displayInvertedColor"
+                      :inverted="true"
+                      :color="invertedColor"></GenerateColors>
     </div>
     <div class="color-options">
       <div class="color-option">
@@ -31,17 +31,29 @@
         <p class="color-option">or enter color to invert</p>
         <div class="individual-color">
           <div class="color-option">
-            <input type="number" max="255" min="0" v-model="red">
+            <input type="number"
+                   max="255"
+                   min="0"
+                   step="1"
+                   v-model="red">
             <label> Red</label>
           </div>
 
           <div class="color-option">
-            <input type="number" max="255" min="0" v-model="green">
+            <input type="number"
+                   max="255"
+                   min="0"
+                   step="1"
+                   v-model="green">
             <label> Green</label>
           </div>
 
           <div class="color-option">
-            <input type="number" max="255" min="0" v-model="blue">
+            <input type="number"
+                   max="255"
+                   min="0"
+                   step="1"
+                   v-model="blue">
             <label> Blue</label>
           </div>
         </div>
@@ -53,9 +65,8 @@
 </template>
 
 <script lang="ts">
-
   import Vue from 'vue'
-  import ColorBlock from '@/components/ColorBlock.vue'
+  import GenerateColors from '@/components/GenerateColors.vue'
 
   export default Vue.extend ({
     name: 'Colors',
@@ -71,7 +82,7 @@
       }
     },
     components: {
-      ColorBlock
+      GenerateColors
     },
     created() {
       this.randomColor();
@@ -95,10 +106,8 @@
           this.invertedColor = `rgb(${255 - this.red},${255 - this.green},${255 - this.blue},${this.opacity})`;
         }
       },
-
     }
   })
-
 </script>
 
 <style lang="less" scoped>

@@ -12,7 +12,7 @@
   import Vue from 'vue';
 
   export default Vue.extend( {
-    name: 'ColorsBlock',
+    name: 'GenerateColors',
     props: ['color', 'inverted'],
     mounted(): void {
       this.setPropsColor();
