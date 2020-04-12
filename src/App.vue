@@ -95,8 +95,9 @@ h2{
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: rgb(196,65,230);
     }
   }
 }
+
 </style>

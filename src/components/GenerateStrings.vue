@@ -3,7 +3,7 @@
     <div class="strings-form-container">
       <div class="strings-input-container">
         <input type="number"
-               max="20"
+               max="10"
                min="2"
                v-model="stringLength">
         <label> Enter length</label>
