@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="child-color-container">
-      <GenerateColors class="color-block"
+    <div class="generate-colors-container">
+      <GenerateColors class="generate-colors"
                       :color="generatedColor"></GenerateColors>
-      <GenerateColors class="color-block"
+      <GenerateColors class="generate-colors"
                       v-if="displayInvertedColor"
                       :inverted="true"
                       :color="invertedColor"></GenerateColors>
@@ -72,13 +72,13 @@
     name: 'Colors',
     data() {
       return {
-        red: 0,
-        green: 0,
-        blue: 0,
-        opacity: 0,
-        generatedColor: '',
-        invertedColor: '',
-        displayInvertedColor: false
+        red: 0 as number,
+        green: 0 as number,
+        blue: 0 as number,
+        opacity: 0 as number,
+        generatedColor: '' as string,
+        invertedColor: '' as string,
+        displayInvertedColor: false as boolean
       }
     },
     components: {
@@ -111,32 +111,30 @@
 </script>
 
 <style lang="less" scoped>
-  .child-color-container {
+  @import '../styles/main.less';
+
+  .generate-colors-container {
     display: flex;
     justify-content: center;
     margin: 0.5em 0.5em 0 0.5em;
     flex-shrink: 0;
     flex-flow: row wrap;
-    .color-block {
+    .generate-colors {
       margin: 0.5em 0.5em 0 0.5em;
     }
   }
   .color-options {
-    width: 300px;
+    width: @form-width;
     text-align: left;
     margin: 1em auto;
     #complementary-color {
       margin: 0 5px 0 0;
     }
     .color-option {
-      margin: 5px 0 5px 0;
+      margin: @row-distance-margin;
     }
     .generator-button {
-      cursor: pointer;
-      background-color: white;
-      border-radius: 5px;
-      padding: 0.5em;
-      border: 1px solid black;
+      .button-styling;
     }
     .lower-section {
       margin-top: 1em;
