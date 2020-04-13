@@ -10,7 +10,7 @@
       </div>
       <button class="generator-button" @click="generateString">Generate</button>
       <p class="string-result"
-         v-if="stringLength >= 2">{{stringResult}}</p>
+         v-if="stringResult.length >= 2">{{stringResult}}</p>
     </div>
   </div>
 </template>

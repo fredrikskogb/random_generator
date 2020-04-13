@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img class="background-image" src="./assets/images/background.jpg" alt="">
     <div id="nav"
          class="nav">
       <h1 class="title">random_generator</h1>
@@ -68,6 +69,16 @@ table {
   text-align: center;
   color: #2c3e50;
   font-size: 100%;
+  .background-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.125;
+    z-index: -1!important;
+  }
 }
 html {
   font-family: 'Special Elite', cursive;

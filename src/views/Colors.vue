@@ -18,7 +18,7 @@
       <div class="color-option">
         <input id="opacity"
                type="number"
-               max="1"
+               max="0.9"
                min="0"
                step="0.1"
                v-model="opacity"
