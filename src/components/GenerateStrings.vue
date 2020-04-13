@@ -30,9 +30,11 @@
     methods: {
         generateString(): void {
           this.stringResult = '';
+
           for(let i = 0; i < this.stringLength; i++) {
             const consonant = this.consonants[Math.floor(Math.random() * this.consonants.length)];
             const vowel = this.vowels[Math.floor(Math.random() * this.vowels.length)];
+
             if(Math.random() < 0.5) {
               this.stringResult += consonant;
             } else {
