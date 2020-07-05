@@ -9,24 +9,41 @@
                       :color="invertedColor"></GenerateColors>
     </div>
     <div class="color-options">
-      <div class="color-option">
+      <div class=upper-section>
+        <div class="color-option">
         <input id="complementary-color"
                type="checkbox"
                @click="displayInvertedColor = !displayInvertedColor">
         <label for="complementary-color">Complementary color</label>
+        </div>
+        <div class="color-option">
+          <input id="warm-color"
+                type="checkbox"
+                v-model="warmColor" 
+                :disabled="coldColor">
+          <label for="warm-color">Warm color</label>
+        </div>
+        <div class="color-option">
+          <input id="cold-color"
+                type="checkbox"
+                v-model="coldColor"
+                :disabled="warmColor">
+          <label for="cold-color">Cold color</label>
+        </div>
+        <div class="color-option">
+          <input id="opacity"
+                type="number"
+                max="0.9"
+                min="0"
+                step="0.1"
+                v-model="opacity"
+                v-on:change="setColors">
+          <label for="opacity"> Opacity</label>
+        </div>
+        <button class="generator-button color-option"
+                @click="randomColor">Generate</button>
       </div>
-      <div class="color-option">
-        <input id="opacity"
-               type="number"
-               max="0.9"
-               min="0"
-               step="0.1"
-               v-model="opacity"
-               v-on:change="setColors">
-        <label for="opacity"> Opacity</label>
-      </div>
-      <button class="generator-button color-option"
-              @click="randomColor">Generate</button>
+      
       <div class="lower-section">
         <p class="color-option">or enter color to invert</p>
         <div class="individual-color">
@@ -78,7 +95,9 @@
         opacity: 0 as number,
         generatedColor: '' as string,
         invertedColor: '' as string,
-        displayInvertedColor: false as boolean
+        displayInvertedColor: false as boolean,
+        warmColor: false as boolean,
+        coldColor: false as boolean
       }
     },
     components: {
@@ -92,6 +111,12 @@
         this.red = this.randomNumber();
         this.green = this.randomNumber();
         this.blue = this.randomNumber();
+        // Experimental way to determine color temperature
+        if (this.warmColor) {
+          if (this.red < this.blue+50 && this.blue < 125) this.randomColor();
+        } else if (this.coldColor) {
+          if(this.red > this.blue+50 && this.red < 125) this.randomColor();
+        }
         this.setColors();
       },
       randomNumber(): number {
@@ -127,11 +152,18 @@
     width: @form-width;
     text-align: left;
     margin: 1em auto;
-    #complementary-color {
-      margin: 0 5px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    div {
+      margin: 0 auto;
     }
+    
     .color-option {
       margin: @row-distance-margin;
+      input {
+        margin-left: 0;
+      }
     }
     .generator-button {
       .button-styling;
