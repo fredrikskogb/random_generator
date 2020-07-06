@@ -113,9 +113,23 @@
         this.blue = this.randomNumber();
         // Experimental way to determine color temperature
         if (this.warmColor) {
-          if (this.red < this.blue+50 && this.blue < 125) this.randomColor();
+          if (this.red < this.blue + 50) {
+            this.randomColor();
+            return;
+          }
+          if (this.green > 80) {
+            this.randomColor();
+            return;
+          }
+          if(this.blue > 120) {
+            this.randomColor();
+            return;
+          }
         } else if (this.coldColor) {
-          if(this.red > this.blue+50 && this.red < 125) this.randomColor();
+          if(this.red > this.blue - 50) {
+            this.randomColor();
+            return;
+          }
         }
         this.setColors();
       },
